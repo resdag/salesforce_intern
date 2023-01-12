@@ -21,7 +21,6 @@ import static utilities.ReusableMethods.*;
 
 public class OpportunitiesStepDefs {
 
-    HomePage homePage = new HomePage();
     AccountsPage accountsPage = new AccountsPage();
     ContactsPage contactsPage = new ContactsPage();
     OpportunitiesPage opportunitiesPage = new OpportunitiesPage();
@@ -144,8 +143,11 @@ public class OpportunitiesStepDefs {
                 Assert.assertTrue(lastCreatedOpp.isDisplayed());
                 break;
             case "Contacts > Placements":
-                Driver.getDriver().navigate().refresh();
-                Assert.assertTrue(placementsPage.firstPlacementIDOnContactsPlacementList.getText().contains(placementID));
+                if (createdObject.equals("Placement")) {
+                    Driver.getDriver().navigate().refresh();
+                    WebElement lastCreatedPlacement = Driver.getDriver().findElement(By.xpath("(//a[@title='" + placementID + "'])[1]"));
+                    Assert.assertTrue(lastCreatedPlacement.isDisplayed());
+                }
                 break;
             default:
                 System.out.println("Please enter valid dropdownName");
@@ -245,10 +247,12 @@ public class OpportunitiesStepDefs {
                         .sendKeys(Keys.ENTER).sendKeys(Keys.ENTER).perform();
                 break;
             case "Contacts > Placements":
-                actions.moveToElement(placementsPage.firstPlacementIDOnContactsPlacementList).click()
-                        .sendKeys(Keys.ENTER)
-                        .sendKeys(Keys.ENTER)
-                        .perform();
+                if (clickedText.equals("lastPlacement")) {
+                    WebElement lastCreatedPlacement = Driver.getDriver().findElement(By.xpath("(//a[@title='" + placementID + "'])[1]"));
+
+                    actions.click(lastCreatedPlacement)
+                            .sendKeys(Keys.ENTER).sendKeys(Keys.ENTER).perform();
+                }
                 break;
             case "Placement":
                 switch (clickedText) {

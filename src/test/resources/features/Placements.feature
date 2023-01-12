@@ -90,7 +90,7 @@ Feature: US05 Placements Navbar Ueberpruefung der Datenfelder
     And I click "Candidate" on selected "Placement" page
     And I click "Placements" on selected "Contact" page
     Then The new created "Placement" should be visible in the list of "Contacts > Placements"
-    When I click "placementID" on selected "Contacts > Placements" page
+    When I click "lastPlacement" on selected "Contacts > Placements" page
     And I click "Delete" button on "Placements" Navbar as "<recordType>"
     And I click "Delete" confirm button
     Then New "placement" should be "deleted"

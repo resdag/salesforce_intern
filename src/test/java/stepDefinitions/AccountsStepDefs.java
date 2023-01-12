@@ -11,7 +11,6 @@ import java.time.Duration;
 import static utilities.ReusableMethods.scrollIntoView;
 
 public class AccountsStepDefs {
-    HomePage homePage = new HomePage();
     AccountsPage accountsPage = new AccountsPage();
     ContactsPage contactsPage = new ContactsPage();
     OpportunitiesPage opportunitiesPage = new OpportunitiesPage();

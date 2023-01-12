@@ -18,7 +18,6 @@ import static utilities.ReusableMethods.waitFor;
 
 public class PlacementsStepDefs {
 
-    HomePage homePage = new HomePage();
     AccountsPage accountsPage = new AccountsPage();
     ContactsPage contactsPage = new ContactsPage();
     OpportunitiesPage opportunitiesPage = new OpportunitiesPage();

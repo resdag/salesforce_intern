@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -18,7 +19,7 @@ import java.time.Duration;
 import static utilities.ReusableMethods.*;
 
 public class ContactsStepDefs {
-    HomePage homePage = new HomePage();
+    //HomePage homePage = new HomePage();
     AccountsPage accountsPage = new AccountsPage();
     ContactsPage contactsPage = new ContactsPage();
     OpportunitiesPage opportunitiesPage = new OpportunitiesPage();
@@ -27,25 +28,223 @@ public class ContactsStepDefs {
     Actions actions = new Actions(Driver.getDriver());
     Select select;
 
+    //-------home
+    @Given("I am {string} login page")
+    public void iAmLoginPage(String salesforceUrl) {
+        Driver.getDriver().get(ConfigReader.getProperty(salesforceUrl));
+    }
+
+    @When("I pass {string} to {string} input box")
+    public void iPassToInputBox(String inputText, String inputBox) {
+        switch (inputBox) {
+            case "userName":
+                contactsPage.signinUsernameField.click();
+                contactsPage.signinUsernameField.sendKeys(ConfigReader.getProperty(inputText));
+                break;
+            case "password":
+                contactsPage.signinPasswordField.click();
+                contactsPage.signinPasswordField.sendKeys(ConfigReader.getProperty(inputText));
+                break;
+            case "accountName":
+                accountsPage.accountNameInputBox.clear();
+                accountsPage.accountNameInputBox.sendKeys(inputText);
+                break;
+            case "contactName":
+                scrollIntoView(contactsPage.lastNameImputBox);
+                contactsPage.lastNameImputBox.clear();
+                contactsPage.lastNameImputBox.sendKeys(inputText);
+                break;
+            case "opportunityTitle":
+                opportunitiesPage.opportunitiesTitleInputBox.clear();
+                opportunitiesPage.opportunitiesTitleInputBox.sendKeys(inputText);
+                break;
+            case "startDate":
+                scrollIntoView(placementsPage.startDateImputBox);
+                placementsPage.startDateImputBox.clear();
+                placementsPage.startDateImputBox.sendKeys(inputText);
+                break;
+            default:
+                System.out.println("Please enter valid inputBox");
+                break;
+        }
+    }
+
+    @And("I click {string} button")
+    public void iClickButton(String buttonName) {
+        waitFor(2);
+        switch (buttonName) {
+            case "anmelden":
+                contactsPage.loginButton.click();
+                break;
+            case "New":
+                contactsPage.newButton.click();
+                break;
+            case "Next":
+                contactsPage.newContactNextButton.click();
+                break;
+            case "Save":
+                contactsPage.saveButton.click();
+                break;
+            case "Cancel":
+                contactsPage.cancelButton.click();
+                break;
+            default:
+                System.out.println("Please enter valid buttonName");
+                break;
+        }
+
+    }
+
+    @Then("I am at {string} page")
+    public void iAmAtHomePage(String pageName) {
+        waitFor(1);
+        switch (pageName) {
+            case "Sales/Freelancer App":
+                contactsPage.appLauncher.click();
+                contactsPage.salesFreelancerAppInMenu.click();
+                Assert.assertTrue(contactsPage.appName.getText().contains(pageName));
+                break;
+            case "Nelta Recruiting App":
+                contactsPage.appLauncher.click();
+                contactsPage.neltaRecruitingAppInMenu.click();
+                Assert.assertTrue(contactsPage.appName.getText().contains(pageName));
+                break;
+            case "Contacts":
+                Driver.getDriver().get(ConfigReader.getProperty(pageName));
+                break;
+            case "Accounts":
+                Driver.getDriver().get(ConfigReader.getProperty(pageName));
+                break;
+            case "Opportunities":
+                Driver.getDriver().get(ConfigReader.getProperty(pageName));
+                break;
+            case "Placements":
+                Driver.getDriver().get(ConfigReader.getProperty(pageName));
+                break;
+            default:
+                System.out.println("Please enter valid pageName");
+                break;
+        }
+    }
+
+    @And("I select {string} from Apps")
+    public void iSelectFromApps(String appName) {
+        waitFor(1);
+        switch (appName) {
+            case "Sales/Freelancer App":
+                contactsPage.salesFreelancerAppInMenu.click();
+                break;
+            case "Nelta Recruiting App":
+                contactsPage.neltaRecruitingAppInMenu.click();
+                break;
+            default:
+                System.out.println("Please enter valid pageName");
+                break;
+        }
+    }
+
+    @And("I should see {string} inputbox")
+    public void iShouldSeeInputbox(String inputbox) {
+        switch (inputbox) {
+            case "search":
+                Assert.assertTrue(contactsPage.searchBox.isDisplayed());
+                break;
+            case "":
+                break;
+            default:
+                System.out.println("Please enter valid inputbox");
+                break;
+        }
+    }
+
+    @And("I should see {string} ikon on Home Page")
+    public void iShouldSeeIkonOnHomePage(String iconName) {
+        switch (iconName) {
+            case "add favorite":
+                Assert.assertTrue(contactsPage.addFavoriteIcon.isDisplayed());
+                break;
+            case "favorites list":
+                Assert.assertTrue(contactsPage.favoritesListIcon.isDisplayed());
+                break;
+            case "global actions":
+                Assert.assertTrue(contactsPage.globalActionsIcon.isDisplayed());
+                break;
+            case "guidance center":
+                Assert.assertTrue(contactsPage.guidanceCenterIcon.isDisplayed());
+                break;
+            case "salesforce help":
+                Assert.assertTrue(contactsPage.salesforceHelpIcon.isDisplayed());
+                break;
+            case "setup":
+                Assert.assertTrue(contactsPage.setupIcon.isDisplayed());
+                break;
+            case "notifications":
+                Assert.assertTrue(contactsPage.notificationsIcon.isDisplayed());
+                break;
+            case "view profile":
+                Assert.assertTrue(contactsPage.viewProfileIcon.isDisplayed());
+                break;
+            case "personalize your nav bar":
+                Assert.assertTrue(contactsPage.personalizeNavbar.isDisplayed());
+                break;
+            default:
+                System.out.println("Please enter valid inputbox");
+                break;
+        }
+    }
+
+    @And("I should see {string} button on Page")
+    public void iShouldSeeButtonOnPage(String buttonName) {
+        switch (buttonName) {
+            case "Accounts":
+                Assert.assertTrue(contactsPage.accountsSubNavTab.isDisplayed());
+                break;
+            case "Contacts":
+                Assert.assertTrue(contactsPage.contactsSubNavTab.isDisplayed());
+                break;
+            case "Opportunities":
+                Assert.assertTrue(contactsPage.opportunitiesSubNavTab.isDisplayed());
+                break;
+            case "Placements":
+                Assert.assertTrue(contactsPage.placementsSubNavTab.isDisplayed());
+                break;
+            default:
+                System.out.println("Please enter valid buttonName");
+                break;
+        }
+    }
+
+
+    @Then("I close Browser")
+    public void iCloseBrowser() {
+        Driver.closeDriver();
+    }
+
+    @And("I wait {int} second")
+    public void iWaitSecond(int second) {
+        waitFor(second);
+    }
+    //-------home
+
 
     @When("I click {string} button in Navbar")
     public void iClickButtonInNavbar(String buttonName) throws InterruptedException {
         waitFor(2);
         switch (buttonName) {
             case "Accounts":
-                homePage.accountsSubNavTab.click();
+                contactsPage.accountsSubNavTab.click();
                 break;
             case "Contacts":
-                homePage.contactsSubNavTab.click();
+                contactsPage.contactsSubNavTab.click();
                 break;
             case "Opportunities":
-                homePage.opportunitiesSubNavTab.click();
+                contactsPage.opportunitiesSubNavTab.click();
                 break;
             case "Placements":
-                homePage.placementsSubNavTab.click();
+                contactsPage.placementsSubNavTab.click();
                 break;
             case "Sendouts":
-                homePage.sendoutsSubNavTab.click();
+                contactsPage.sendoutsSubNavTab.click();
                 break;
             default:
                 System.out.println("Please enter valid buttonName");

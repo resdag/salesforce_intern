@@ -56,7 +56,7 @@ public class PlacementsPage {
     @FindBy(xpath = "//lightning-formatted-text[@slot='primaryField']")
     public WebElement selectedPlacementPlacementID;
 
-    @FindBy(xpath = "//tbody/tr[1]/th[1]")
+    @FindBy(xpath = "(//tbody/tr[1]/th[1])[1]")
     public WebElement firstPlacementIDOnContactsPlacementList;
 
 }
