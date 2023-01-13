@@ -41,22 +41,12 @@ public class PlacementsPage {
    @FindBy(xpath = "(//input[@placeholder='Search Contacts...'])[2]")
    public WebElement secondSearchContactsInputBox;
 
-   //@FindBy(xpath = "(//lightning-formatted-text[@data-output-element-id='output-field'])[3]")
-   //public WebElement startDateInPlacementDetailsImputBox;
-
     @FindBy(xpath = "//tbody/tr[1]//td[3]")
     public WebElement firstStartDateInPlacementTable;
-
-    @FindBy(xpath = "(//tbody/tr//th)[1]")
-    public WebElement firstPlacementIDInPlacementTable;
 
     @FindBy(xpath = "(//force-lookup[@data-output-element-id='output-field'])[1]")
     public WebElement candidateInPlacementDetails;
 
     @FindBy(xpath = "//lightning-formatted-text[@slot='primaryField']")
     public WebElement selectedPlacementPlacementID;
-
-    @FindBy(xpath = "(//tbody/tr[1]/th[1])[1]")
-    public WebElement firstPlacementIDOnContactsPlacementList;
-
 }

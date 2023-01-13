@@ -51,10 +51,15 @@ public class AccountsStepDefs {
                         contactsPage.lastNameImputBox.clear();
                         contactsPage.lastNameImputBox.sendKeys("Müller");
                         break;
-                    default:
+                    case "Candidate":
+                    case "Freelancer":
+                    case "Manager":
                         scrollIntoView(contactsPage.lastNameImputBox);
                         contactsPage.lastNameImputBox.clear();
                         contactsPage.lastNameImputBox.sendKeys("Müller");
+                        break;
+                    default:
+                        System.out.println("Please enter valid recordType");
                         break;
                 }
                 break;
@@ -149,9 +154,7 @@ public class AccountsStepDefs {
                                 .sendKeys(Keys.ARROW_DOWN).pause(Duration.ofMillis(300))
                                 .sendKeys(Keys.ARROW_UP).pause(Duration.ofMillis(300))
                                 .sendKeys(Keys.ENTER).perform();
-
                         break;
-
                     default:
                         System.out.println("Please enter valid recordType");
                         break;
@@ -167,7 +170,7 @@ public class AccountsStepDefs {
                                 .sendKeys(Keys.ENTER).perform();
 
                         actions.click(placementsPage.costCenterDropdown).pause(Duration.ofMillis(300))
-                                .sendKeys(Keys.ARROW_DOWN)
+                                .sendKeys(Keys.ARROW_DOWN).pause(Duration.ofMillis(300))
                                 .sendKeys(Keys.ARROW_DOWN).pause(Duration.ofMillis(300))
                                 .sendKeys(Keys.ENTER).perform();
 

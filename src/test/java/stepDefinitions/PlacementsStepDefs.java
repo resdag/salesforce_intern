@@ -27,10 +27,8 @@ public class PlacementsStepDefs {
 
     @And("This is only for Test")
     public void thisIsOnlyForTest() {
-        actions.moveToElement(contactsPage.firstNameOnContactsList).click()
-                .sendKeys(Keys.ENTER)
-                .sendKeys(Keys.ENTER)
-                .perform();
+
+
     }
 
     @And("I should see {string} in {string} subTitle on selected {string}")
@@ -83,8 +81,6 @@ public class PlacementsStepDefs {
                 switch (buttonName) {
                     case "New":
                         Assert.assertTrue(contactsPage.newButton.isDisplayed());
-                        break;
-                    case "new":
                         break;
                     default:
                         System.out.println("Please enter valid buttonName");

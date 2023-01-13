@@ -110,14 +110,8 @@ public class ContactsStepDefs {
                 Assert.assertTrue(contactsPage.appName.getText().contains(pageName));
                 break;
             case "Contacts":
-                Driver.getDriver().get(ConfigReader.getProperty(pageName));
-                break;
             case "Accounts":
-                Driver.getDriver().get(ConfigReader.getProperty(pageName));
-                break;
             case "Opportunities":
-                Driver.getDriver().get(ConfigReader.getProperty(pageName));
-                break;
             case "Placements":
                 Driver.getDriver().get(ConfigReader.getProperty(pageName));
                 break;
@@ -141,142 +135,6 @@ public class ContactsStepDefs {
                 System.out.println("Please enter valid pageName");
                 break;
         }
-    }
-
-    @And("I should see {string} inputbox")
-    public void iShouldSeeInputbox(String inputbox) {
-        switch (inputbox) {
-            case "search":
-                Assert.assertTrue(contactsPage.searchBox.isDisplayed());
-                break;
-            case "":
-                break;
-            default:
-                System.out.println("Please enter valid inputbox");
-                break;
-        }
-    }
-
-    @And("I should see {string} ikon on Home Page")
-    public void iShouldSeeIkonOnHomePage(String iconName) {
-        switch (iconName) {
-            case "add favorite":
-                Assert.assertTrue(contactsPage.addFavoriteIcon.isDisplayed());
-                break;
-            case "favorites list":
-                Assert.assertTrue(contactsPage.favoritesListIcon.isDisplayed());
-                break;
-            case "global actions":
-                Assert.assertTrue(contactsPage.globalActionsIcon.isDisplayed());
-                break;
-            case "guidance center":
-                Assert.assertTrue(contactsPage.guidanceCenterIcon.isDisplayed());
-                break;
-            case "salesforce help":
-                Assert.assertTrue(contactsPage.salesforceHelpIcon.isDisplayed());
-                break;
-            case "setup":
-                Assert.assertTrue(contactsPage.setupIcon.isDisplayed());
-                break;
-            case "notifications":
-                Assert.assertTrue(contactsPage.notificationsIcon.isDisplayed());
-                break;
-            case "view profile":
-                Assert.assertTrue(contactsPage.viewProfileIcon.isDisplayed());
-                break;
-            case "personalize your nav bar":
-                Assert.assertTrue(contactsPage.personalizeNavbar.isDisplayed());
-                break;
-            default:
-                System.out.println("Please enter valid inputbox");
-                break;
-        }
-    }
-
-    @And("I should see {string} button on Page")
-    public void iShouldSeeButtonOnPage(String buttonName) {
-        switch (buttonName) {
-            case "Accounts":
-                Assert.assertTrue(contactsPage.accountsSubNavTab.isDisplayed());
-                break;
-            case "Contacts":
-                Assert.assertTrue(contactsPage.contactsSubNavTab.isDisplayed());
-                break;
-            case "Opportunities":
-                Assert.assertTrue(contactsPage.opportunitiesSubNavTab.isDisplayed());
-                break;
-            case "Placements":
-                Assert.assertTrue(contactsPage.placementsSubNavTab.isDisplayed());
-                break;
-            default:
-                System.out.println("Please enter valid buttonName");
-                break;
-        }
-    }
-
-
-    @Then("I close Browser")
-    public void iCloseBrowser() {
-        Driver.closeDriver();
-    }
-
-    @And("I wait {int} second")
-    public void iWaitSecond(int second) {
-        waitFor(second);
-    }
-    //-------home
-
-
-    @When("I click {string} button in Navbar")
-    public void iClickButtonInNavbar(String buttonName) throws InterruptedException {
-        waitFor(2);
-        switch (buttonName) {
-            case "Accounts":
-                contactsPage.accountsSubNavTab.click();
-                break;
-            case "Contacts":
-                contactsPage.contactsSubNavTab.click();
-                break;
-            case "Opportunities":
-                contactsPage.opportunitiesSubNavTab.click();
-                break;
-            case "Placements":
-                contactsPage.placementsSubNavTab.click();
-                break;
-            case "Sendouts":
-                contactsPage.sendoutsSubNavTab.click();
-                break;
-            default:
-                System.out.println("Please enter valid buttonName");
-                break;
-        }
-    }
-
-    @When("I select {string} from Accounts filter")
-    public void iSelectFromAccountsDropdown(String accountsName) {
-        contactsPage.selectAListViewDropDown.click();
-        WebElement selectedAccount = Driver.getDriver().findElement(By.xpath("//span[text()='" + accountsName + "']"));
-        selectedAccount.click();
-        waitFor(1);
-
-    }
-
-    @Then("I should see {string} title on Accounts subNavbar")
-    public void iShouldSeeTitleOnAccountsSubNavbar(String accountsName) {
-        Assert.assertTrue(contactsPage.selectListViewTitle.getText().contains(accountsName));
-    }
-
-    @When("I select {string} from Contacts filter")
-    public void iSelectFromContactsFilter(String contactsName) {
-        contactsPage.selectAListViewDropDown.click();
-        WebElement selectedContacts = Driver.getDriver().findElement(By.xpath("(//span[text()='" + contactsName + "'])[1]"));
-        selectedContacts.click();
-        waitFor(1);
-    }
-
-    @Then("I should see {string} title on Contacts subNavbar")
-    public void iShouldSeeTitleOnContactsSubNavbar(String contactsName) {
-        Assert.assertTrue(contactsPage.selectListViewTitle.getText().contains(contactsName));
     }
 
     @And("I select {string} from record types")
@@ -317,24 +175,15 @@ public class ContactsStepDefs {
             case "We hit a snag.":
                 switch (recordType) {
                     case "Candidate":
+                    case "Freelancer":
+                    case "Manager":
                         Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Name"));
                         break;
                     case "Employee":
                         Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Employment Type"));
                         Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Name"));
                         break;
-                    case "Freelancer":
-                        Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Name"));
-                        break;
-                    case "Manager":
-                        Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Name"));
-                        break;
                     case "Business Account":
-                        Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Account Name"));
-                        Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Status"));
-                        Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Business Terms"));
-                        Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Business Tier"));
-                        break;
                     case "Nelta Candidates":
                         Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Account Name"));
                         Assert.assertTrue(contactsPage.warningReviewText.getText().contains("Status"));
@@ -1450,17 +1299,6 @@ public class ContactsStepDefs {
                         Assert.assertTrue(placementsPage.endDateImputBox.isDisplayed());
                         Assert.assertTrue(placementsPage.secondSearchContactsInputBox.isDisplayed());
                         Assert.assertTrue(placementsPage.serviceDescriptionTextarea.isDisplayed());
-                        break;
-                    default:
-                        System.out.println("Please enter valid recordType");
-                        break;
-                }
-                break;
-            case "new __":
-                switch (recordType) {
-                    case "Candidate":
-                        break;
-                    case "Manager":
                         break;
                     default:
                         System.out.println("Please enter valid recordType");

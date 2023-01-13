@@ -148,38 +148,16 @@ public class OpportunitiesPage {
     @FindBy(xpath = "//select[@class='stepAction required-field select']")
     public WebElement selectClosedStageDropdown;
 
-    @FindBy(xpath = "//button[@title='Save']")
-    public WebElement closeThisOpportunitySaveButton;
-
-    @FindBy(xpath = "//button[@title='Cancel']")
-    public WebElement closeThisOpportunityCancelButton;
-
     //-------Opportunities
 
     @FindBy(xpath = "//tbody/tr[1]")
     public WebElement firstRowOfOpportunities;
-
-    @FindBy(xpath = "//tbody/tr[1]/td[2]")
-    public WebElement firstAccountNameOfOpportunities;
-
-    @FindBy(xpath = "(//tbody/tr//th)[1]")
-    public WebElement firstTitleOfOpportunities;
 
     @FindBy(xpath = "(//span[@title='Opportunities'])[1]")
     public WebElement opportunitiesOnAccountRelated;
 
     @FindBy(xpath = "(//span[@title='Related Contacts'])[1]")
     public WebElement relatedContactsOnAccountRelated;
-
-    @FindBy(xpath = "(//span[text()='View All'])[1]")
-    public WebElement firstViewAllOnAccountRelated;
-
-
-    @FindBy(xpath = "(//tbody/tr//th)[1]")
-    public WebElement firstOpportunityTitleOfSelectedAccount;
-
-    @FindBy(xpath = "//tbody//tr/th")
-    public List<WebElement> allOpportunityTitleOfSelectedAccount;
 
     @FindBy(xpath = "(//a[@class='flex-wrap-ie11 slds-truncate'])[1]")
     public WebElement selectedOpportunityAccountName;
@@ -189,9 +167,6 @@ public class OpportunitiesPage {
 
     @FindBy(xpath = "//tbody/tr[1]/th[1]")
     public WebElement firstOpportunityTitleOnOpportunities;
-
-    @FindBy(xpath = "(//span[@title='Placements'])[1]")
-    public WebElement placementsOnOpportunityRelated;
 
 
 

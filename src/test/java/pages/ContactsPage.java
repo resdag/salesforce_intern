@@ -29,85 +29,20 @@ public class ContactsPage {
     @FindBy(xpath = "//div[@class='appLauncher slds-context-bar__icon-action']")
     public WebElement appLauncher;
 
-    @FindBy(css = ".search-button")
-    public WebElement searchBox;
-
-    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='Account']")
-    public WebElement accountsSubNavTab;
-
-    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='Contact']")
-    public WebElement contactsSubNavTab;
-
-    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='Opportunity']")
-    public WebElement opportunitiesSubNavTab;
-
-    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='0KD7S0000008dy1WAA']")
-    public WebElement placementsSubNavTab;
-
-
-    @FindBy(xpath = "//one-app-nav-bar-item-root[@data-id='0KD7S0000008dy1WAA']")
-    public WebElement sendoutsSubNavTab;
-
     @FindBy(xpath = "//p[text()='Sales/Freelancer App']")
     public WebElement salesFreelancerAppInMenu;
 
     @FindBy(xpath = "//p[text()='Nelta Recruiting App']")
     public WebElement neltaRecruitingAppInMenu;
 
-    @FindBy(css = ".slds-global-actions__favorites-action")
-    public WebElement addFavoriteIcon;
-
-    @FindBy(css = ".slds-global-actions__favorites-more")
-    public WebElement favoritesListIcon;
-
-    @FindBy(css = "svg[class='slds-icon slds-icon_x-small']")
-    public WebElement globalActionsIcon;
-
-    @FindBy(css = "button[aria-label='Guidance Center']")
-    public WebElement guidanceCenterIcon;
-
-    @FindBy(css = ".slds-global-actions__help")
-    public WebElement salesforceHelpIcon;
-
-    @FindBy(css = ".slds-global-actions__setup")
-    public WebElement setupIcon;
-
-    @FindBy(css = ".slds-global-actions__notifications")
-    public WebElement notificationsIcon;
-
-    @FindBy(css = ".userProfileCardTriggerRoot ")
-    public WebElement viewProfileIcon;
-
-    @FindBy(css = "button[title='Personalize your nav bar']")
-    public WebElement personalizeNavbar;
-    //-------home
-
-    @FindBy(css = "button[class='slds-button slds-button--reset downIcon slds-m-top_xxx-small slds-p-right_xxx-small']")
-    public WebElement selectAListViewDropDown;
-
-    @FindBy(css = ".selectedListView")
-    public WebElement selectListViewTitle;
-
     @FindBy(css = "a[title='New']")
     public WebElement newButton;
-
-    @FindBy(css = "a[title='Import']")
-    public WebElement importButton;
-
-    @FindBy(css = "a[title='Send List Email']")
-    public WebElement sendListEmailButton;
-
-    @FindBy(css = "a[title='Printable View']")
-    public WebElement printableViewButton;
 
     @FindBy(css = ".changeRecordTypeOptionRightColumn")
     public List<WebElement> recordTypeOptions;
 
     @FindBy(xpath = "//span[text()='Next']")
     public WebElement newContactNextButton;
-
-    @FindBy(xpath = "//button[@class='slds-button slds-button--neutral slds-button slds-button_neutral uiButton']")
-    public WebElement newContactCancelButton;
 
     @FindBy(xpath = "//div[@aria-label='Success']")
     public WebElement successMessage;
@@ -119,22 +54,9 @@ public class ContactsPage {
     @FindBy(xpath = "//div[@data-value='Phone']")
     public WebElement contactPossibilitiesPhone;
 
-    @FindBy(xpath = "//div[@data-value='E-Mail']")
-    public WebElement contactPossibilitiesEmail;
-
-    @FindBy(xpath = "//div[@data-value='SMS/WhatsApp']")
-    public WebElement contactPossibilitiesSMSWhatsApp;
-
-    @FindBy(xpath = "(//div[@class='slds-dueling-list__options'])[1]")
-    public WebElement availableContactPossibilitiesBox;
-
-    @FindBy(xpath = "(//div[@class='slds-dueling-list__options'])[2]")
-    public WebElement chosenContactPossibilitiesBox;
     @FindBy(xpath = "(//button[@title='Move selection to Chosen'])[1]")
     public WebElement firstMoveToChosen;
 
-    @FindBy(xpath = "(//button[@title='Move selection to Available'])[1]")
-    public WebElement firstMoveToAvailable;
     @FindBy(xpath = "//button[@aria-label='Salutation, --None--']")
     public WebElement salutationInputBoxDropdown;
 
@@ -162,26 +84,11 @@ public class ContactsPage {
     @FindBy(xpath = "(//div[@data-value='English'])[1]")
     public WebElement languageEnglish;
 
-    @FindBy(css = "div[data-value='French']")
-    public WebElement languageFrench;
-
-    @FindBy(xpath = "(//div[@class='slds-dueling-list__options'])[3]")
-    public WebElement availableLanguageBox;
-
-    @FindBy(xpath = "(//div[@class='slds-dueling-list__options'])[4]")
-    public WebElement chosenLanguageBox;
-
     @FindBy(xpath = "(//button[@title='Move selection to Chosen'])[2]")
     public WebElement secondMoveToChosen;
 
-    @FindBy(xpath = "(//button[@title='Move selection to Available'])[2]")
-    public WebElement secondMoveToAvailable;
-
     @FindBy(xpath = "(//button[@aria-label='Source, --None--'])[1]")
     public WebElement sourceInputBoxDropdown;
-
-    @FindBy(xpath = "(//span[text()='XING'])[1]")
-    public WebElement sourceInputBoxXING;
 
     @FindBy(xpath = "//input[@placeholder='Search Contacts...']")
     public WebElement employeeSearchDropdown;
@@ -195,23 +102,8 @@ public class ContactsPage {
     @FindBy(xpath = "//div[@data-value='QA']")
     public WebElement competencesQA;
 
-    @FindBy(xpath = "//div[@data-value='SAP']")
-    public WebElement competencesSAP;
-
-    @FindBy(xpath = "//div[@data-value='SF/CRM']")
-    public WebElement competencesSF_CRM;
-
-    @FindBy(xpath = "(//div[@class='slds-dueling-list__options'])[5]")
-    public WebElement availableCompetencesBox;
-
-    @FindBy(xpath = "(//div[@class='slds-dueling-list__options'])[6]")
-    public WebElement chosenCompetencesBox;
-
     @FindBy(xpath = "(//button[@title='Move selection to Chosen'])[3]")
     public WebElement thirdMoveToChosen;
-
-    @FindBy(xpath = "(//button[@title='Move selection to Available'])[3]")
-    public WebElement thirdMoveToAvailable;
 
     @FindBy(xpath = "//input[@name='Availability__c']")
     public WebElement availibility;
@@ -267,9 +159,6 @@ public class ContactsPage {
     @FindBy(xpath = "//span[@class='custom-truncate uiOutputText']")
     public WebElement createdContactName;
 
-    @FindBy(xpath = "//button[text()='Delete']")
-    public WebElement createdContactDeleteButton;
-
     @FindBy(xpath = "(//button[@title='Delete'])[1]")
     public WebElement deleteConfirmButton;
 
@@ -278,9 +167,6 @@ public class ContactsPage {
 
     @FindBy(xpath = "//span[text()='Source']")
     public WebElement contactDetailsSourceText;
-
-    @FindBy(xpath = "(//div[@class='slds-form-element__control'])[13]")
-    public WebElement contactDetailsSourceInput;
 
     // New Contact: Employee Locate-----------------------
 
@@ -330,9 +216,6 @@ public class ContactsPage {
     @FindBy(xpath = "//input[@name='Department']")
     public WebElement departmentInputBox;
 
-    @FindBy(xpath = "//button[@name='Edit']")
-    public WebElement editButton;
-
     @FindBy(xpath = "(//span[@title='Related Accounts'])[1]")
     public WebElement relatedAccountsOnContactRelated;
 
@@ -346,15 +229,6 @@ public class ContactsPage {
 
     @FindBy(xpath = "(//span[@title='Placements'])[1]")
     public WebElement placementsOnContactRelated;
-
-    @FindBy(xpath = "(//span[@title='Sendouts'])[1]")
-    public WebElement sendoutsOnContactRelated;
-
-    @FindBy(xpath = "(//span[@title='Assigned to Shortlists'])[1]")
-    public WebElement assignedToShortlistOnContactRelated;
-
-    @FindBy(xpath = "(//tbody/tr//th)[1]")
-    public WebElement firstNameOnContactsList;
 
     @FindBy(xpath = "//tbody/tr[1]/th[1]")
     public WebElement firstContactNameOnContacts;

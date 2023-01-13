@@ -78,6 +78,7 @@ public class OpportunitiesStepDefs {
             case "Workflow of Opportunity":
                 switch (recordType) {
                     case "Jobs":
+                    case "Projects":
                         Assert.assertTrue(opportunitiesPage.workflowOpportunityQualification.isDisplayed());
                         Assert.assertTrue(opportunitiesPage.workflowOpportunityProposal.isDisplayed());
                         Assert.assertTrue(opportunitiesPage.workflowOpportunityInterview.isDisplayed());
@@ -85,15 +86,10 @@ public class OpportunitiesStepDefs {
                         Assert.assertTrue(opportunitiesPage.workflowOpportunityNegotiation.isDisplayed());
                         Assert.assertTrue(opportunitiesPage.workflowOpportunityClosed.isDisplayed());
                         break;
-                    case "Projects":
-
-                        break;
                     default:
                         System.out.println("Please enter valid recordType");
                         break;
                 }
-                break;
-            case "new":
                 break;
             default:
                 System.out.println("Please enter valid stageName");
@@ -154,24 +150,6 @@ public class OpportunitiesStepDefs {
                 break;
         }
 
-    }
-
-    @And("I am going to {string} page")
-    public void iAmGoingToPage(String pageName) {
-        switch (pageName) {
-            case "previous":
-                Driver.getDriver().navigate().back();
-                break;
-            case "next":
-                Driver.getDriver().navigate().forward();
-                break;
-            case "refresh":
-                Driver.getDriver().navigate().refresh();
-                break;
-            default:
-                System.out.println("Please enter valid pageName");
-                break;
-        }
     }
 
     @And("I store {string} of {string}")
@@ -275,12 +253,8 @@ public class OpportunitiesStepDefs {
                         waitFor(1);
                         scrollIntoView(contactsPage.notesAttachmentOnContactRelated);
                         waitFor(1);
-                        //scrollIntoView(contactsPage.interviewsOnContactRelated);
-                        waitFor(1);
                         actions.click(contactsPage.placementsOnContactRelated).perform();
                         waitFor(1);
-                        break;
-                    case "new":
                         break;
                     default:
                         System.out.println("Please enter valid clickedText");
@@ -294,8 +268,6 @@ public class OpportunitiesStepDefs {
                                 .sendKeys(Keys.ENTER)
                                 .sendKeys(Keys.ENTER)
                                 .perform();
-                        break;
-                    case "new":
                         break;
                     default:
                         System.out.println("Please enter valid clickedText");
